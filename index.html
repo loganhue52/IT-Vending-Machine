@@ -10,6 +10,46 @@
     </head>
 
     <body>
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+          
+            const firebaseConfig = {
+              apiKey: "AIzaSyBQRXfJ6qE_euNFGDx3ppCmQJKWhdi4SyE",
+              authDomain: "it-closet.firebaseapp.com",
+              databaseURL: "https://it-closet-default-rtdb.firebaseio.com",
+              projectId: "it-closet",
+              storageBucket: "it-closet.appspot.com",
+              messagingSenderId: "935774822996",
+              appId: "1:935774822996:web:242ef61a79ac4e536b43c1",
+              measurementId: "G-KFRD3P1K68"
+            };
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+
+            var messagesRef = firebase.database().ref('Items');
+            var database = firebase.database();
+
+            // messagesRef.on('value', (snapshot) => {
+            //     const data = snapshot.val();
+            //     updateStarCount(postElement, data);
+            // });
+
+            import { getDatabase, ref, child, get } from "C:/Users/padawan/node_modules/firebase/database";
+
+            const dbRef = ref(getDatabase());
+            get(child(dbRef, `Items`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log(snapshot.val());
+            } else {
+                console.log("No data available");
+            }
+            }).catch((error) => {
+            console.error(error);
+            });
+          </script>
+
         <h1>IT Equipment Inventory</h1>
 
         <table class="center">
@@ -21,9 +61,6 @@
                 <th>ID #</th>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
                 <td></td>
             </tr>
         </table>

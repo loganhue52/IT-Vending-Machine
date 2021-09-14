@@ -1,53 +1,106 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-        <title>Path of Light Yoga Studio</title>
-    </head>
+<head>
+	<meta charset="UTF-8">
+	<title>Add Items</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <body>
-        
-        <header><h1><a href="index.html">Path of Light Yoga Studio</a></h1></header>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        
-        <div id="wrapper">
-            <main>
-                <h2>Contact Path of Light Yoga Studio</h2>
-                <p>Fill out the form below to contact Path of Light Yoga Studio. All information is required.</p>
-                <form method="post" action="https://webdevbasics.net/scripts/yoga.php">
-                    <label for="myname">Name:</label>
-                        <input id="myname" placeholder="Your Name Please" type="text" required>
-                    <label for="myEmail">Email:</label>
-                        <input id="myEmail" placeholder="Your Email Please" type="email" required>
-                    <label for="referr">How did you hear about us?:</label>
-                        <input id="referr" type="text" list="referral">
-                            <datalist id="referral">
-                                <option value="Google">
-                                <option value="Facebook">
-                                <option value="Friend">
-                                <option value="Radio Ad">
-                            </datalist>
-                    <label for="comments">Comments:</label>
-                        <textarea id="comments" rows=2 cols=20 required></textarea>
-                    <button id="formBTN">Submit</button>
-                </form>
-            </main>
+	<link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+		crossorigin="anonymous">
+</head>
 
-            <footer>
-                Copyright © 2020 Path of Light Yoga Studio<br>
-                <a href="mailto:nic@bander.com">nic@bander.com</a>
-            </footer>
+<body class="container" style="margin-top: 50px; width: 50%; height:auto;">
+	
+	<h2 class="text-primary" style="margin-left: 15px; margin-bottom: 10px">
+		Add Items
+	</h2>
+	
+	<form class="container" id="contactForm">
 
-        </div>
-    </body>
+		<div class="card">
+
+			<div class="card-body">
+
+				<div class="form-group">
+					<label for="exampleFormControlInput1">Tag</label>
+					<input type="text" class="form-control" id="tag" placeholder="USB A-B M-M">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlInput1">Description</label>
+					<input type="text" class="form-control" id="desc" placeholder="Type A to Type B, Male to Male">
+				</div>
+
+                <div class="form-group">
+					<label for="exampleFormControlInput1">Quantity</label>
+					<input type="number" class="form-control" id="qty" placeholder="123">
+				</div>
+
+                <div class="form-group">
+					<label for="exampleFormControlInput1">Location</label>
+					<input type="text" class="form-control" id="loc" placeholder="Welding Closet">
+				</div>
+
+			</div>
+
+			<button type="submit" class="btn btn-primary"
+				style="margin-left: 15px; margin-top: 10px">Submit</button>
+		</div>
+	</form>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+	
+	<script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyBQRXfJ6qE_euNFGDx3ppCmQJKWhdi4SyE",
+            authDomain: "it-closet.firebaseapp.com",
+            databaseURL: "https://it-closet-default-rtdb.firebaseio.com",
+            projectId: "it-closet",
+            storageBucket: "it-closet.appspot.com",
+            messagingSenderId: "935774822996",
+            appId: "1:935774822996:web:242ef61a79ac4e536b43c1",
+            measurementId: "G-KFRD3P1K68"
+		};
+
+		firebase.initializeApp(firebaseConfig);
+
+		var messagesRef = firebase.database().ref('Items');
+		
+		document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+		function submitForm(e) {e.preventDefault();
+
+			// Get values
+			var tag = getInputVal('tag');
+			var desc = getInputVal('desc');
+            var qty = getInputVal('qty');
+            var loc = getInputVal('loc')
+
+			saveMessage(tag,desc,qty,loc);
+			document.getElementById('contactForm').reset();
+		}
+
+		// Function to get get form values
+		function getInputVal(id) {
+			return document.getElementById(id).value;
+		}
+
+		// Save message to firebase
+		function saveMessage(tag,desc,qty,loc) {
+			var newMessageRef = messagesRef.push();
+			newMessageRef.set({
+				tag: tag,
+                desc: desc,
+                qty: qty,
+                loc: loc,
+			});
+		}
+	</script>
+
+
+</body>
+
 </html>
