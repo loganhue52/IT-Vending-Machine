@@ -41,7 +41,11 @@
 
                 <div class="form-group">
 					<label for="exampleFormControlInput1">Location</label>
-					<input type="text" class="form-control" id="loc" placeholder="Welding Closet">
+						<select name="location" id="loc">
+							<option value="Welding Closet">Welding Closet</option>
+							<option value="Classroom">Classroom</option>
+							<option value="HS Closet">HS Closet</option>
+						</select>
 				</div>
 
 			</div>
@@ -67,7 +71,9 @@
 
 		firebase.initializeApp(firebaseConfig);
 
-		var messagesRef = firebase.database().ref('Items');
+		var db = firebase.database()
+
+		var messagesRef = db.ref('Items');
 		
 		document.getElementById('contactForm').addEventListener('submit', submitForm);
 
