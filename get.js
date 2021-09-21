@@ -1,3 +1,4 @@
+  
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
 
@@ -17,34 +18,38 @@ const analytics = getAnalytics(app);
 
 var database = firebase.database();
 
+var listy = new Array();
 
-function getValues(db){
-    // to make value list
-        // make a list
-        // take snapshot
-        // for loop through snapshot to add them to a list
-    var listy = [];
-    db.ref().on("value", function(snapshot) {
-    for (var i=0; i< /* continue */){
-        //continue
+database.ref("Items").on('value', (snapshot) => {
+    const data = snapshot.val();
+    var items = Object.values(data);
+    for(let k in items){
+        let i = Object.values(items[k]);
+        listy.push(i);
+        // console.log(Object.values(items[k]));
+        // For some reason, the array returns as empty even though it is not
     }
-    }, function (error) {
-    console.log("Error: " + error.code);
-    });
-}
+    
+});
 
-var valList = getValues(database);
-
-/* 
+console.log(listy);
 
 var table = "<table>";
+// console.log(listy.length);
+// listy.forEach(element => console.log(element));
+// console.log(listy[0]);
 
-for (var rowIndex=0; rowIndex <= n; rowIndex++) {
-  var row = "<tr><td>#" + rowIndex + "</td>";
-  for(var colIndex = 0; colIndex < 4; colIndex++) {
-      row += "<td>" + demoList[rowIndex][colIndex] + "</td>";
-  }
-  table += row + "</tr>";
+for (var rowIndex=0; rowIndex < listy.length; rowIndex++) {
+    var row = "<tr><td>#" + rowIndex + "</td>";
+    console.log("anything");
+    for(var colIndex = 0; colIndex < 4; colIndex++) {
+        var x = listy[rowIndex][colIndex];
+        row += "<td>" + x + "</td>";
+        console.log("something");
+    }
+    table += row + "</tr>";
 }
-document.getElementById("output").innerHTML = table + "</table>"; 
-*/
+
+// console.log(table);
+
+// document.getElementById("output").innerHTML = table + "</table>"; 
