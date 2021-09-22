@@ -20,19 +20,26 @@ var database = firebase.database();
 
 var listy = new Array();
 
+var objList = new Array();
+
 database.ref("Items").on('value', (snapshot) => {
     const data = snapshot.val();
     var items = Object.values(data);
-    for(let k in items){
-        let i = Object.values(items[k]);
-        listy.push(i);
-        // console.log(Object.values(items[k]));
-        // For some reason, the array returns as empty even though it is not
+    listy.push(Object.keys(items).map((key) => [items[key]]));
+    for(let k in listy){
+        for (let j in listy[k]){
+            for (let l in listy[k][j]){
+                objList.push(Object.values(listy[k][j][l]));
+            }
+        }
     }
-    
+    //when objList is printed within the arrow function, it returns what I need
+    //when it is printed outside of the function it returns as a list with the attributes of the objects
+    console.log(objList);
 });
 
-console.log(listy);
+console.log(objList);
+
 
 var table = "<table>";
 // console.log(listy.length);
