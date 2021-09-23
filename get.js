@@ -3,15 +3,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBQRXfJ6qE_euNFGDx3ppCmQJKWhdi4SyE",
-    authDomain: "it-closet.firebaseapp.com",
-    databaseURL: "https://it-closet-default-rtdb.firebaseio.com",
-    projectId: "it-closet",
-    storageBucket: "it-closet.appspot.com",
-    messagingSenderId: "935774822996",
-    appId: "1:935774822996:web:242ef61a79ac4e536b43c1",
-    measurementId: "G-KFRD3P1K68"
-};
+    apiKey: "AIzaSyDAZQf5-Sq6wnd2nmGud9xfB_Coi5uybVY",
+    authDomain: "itvendingmachine-28a8b.firebaseapp.com",
+    projectId: "itvendingmachine-28a8b",
+    storageBucket: "itvendingmachine-28a8b.appspot.com",
+    messagingSenderId: "651890505111",
+    databaseURL: "https://itvendingmachine-28a8b-default-rtdb.firebaseio.com/",
+    appId: "1:651890505111:web:b062d7d1cf700a0fd100d2",
+    measurementId: "G-N7KHFSJEXQ"
+  };
+
 firebase.initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -22,41 +23,37 @@ var listy = new Array();
 
 var objList = new Array();
 
-database.ref("Items").on('value', (snapshot) => {
-    const data = snapshot.val();
-    var items = Object.values(data);
-    listy.push(Object.keys(items).map((key) => [items[key]]));
-    for(let k in listy){
-        for (let j in listy[k]){
-            for (let l in listy[k][j]){
-                objList.push(Object.values(listy[k][j][l]));
+function getVals(database){
+    database.ref("Items").on('value', (snapshot) => {
+        const data = snapshot.val();
+        var items = Object.values(data);
+        listy.push(Object.keys(items).map((key) => [items[key]]));
+        for(let k in listy){
+            for (let j in listy[k]){
+                for (let l in listy[k][j]){
+                    objList.push(Object.values(listy[k][j][l]));
+                }
             }
         }
-    }
-    //when objList is printed within the arrow function, it returns what I need
-    //when it is printed outside of the function it returns as a list with the attributes of the objects
-    console.log(objList);
-});
-
-console.log(objList);
-
-
-var table = "<table>";
-// console.log(listy.length);
-// listy.forEach(element => console.log(element));
-// console.log(listy[0]);
-
-for (var rowIndex=0; rowIndex < listy.length; rowIndex++) {
-    var row = "<tr><td>#" + rowIndex + "</td>";
-    console.log("anything");
-    for(var colIndex = 0; colIndex < 4; colIndex++) {
-        var x = listy[rowIndex][colIndex];
-        row += "<td>" + x + "</td>";
-        console.log("something");
-    }
-    table += row + "</tr>";
+        setUpTable(objList)
+    });
 }
 
-// console.log(table);
+getVals(database);
 
-// document.getElementById("output").innerHTML = table + "</table>"; 
+var table = "<table> <tr><th>Tag</th><th>Description</th><th>Qty</th><th>Location</th><th>ID #</th></tr>";
+
+function setUpTable(l){
+    table = "<table> <tr><th>ID #</th><th>Description</th><th>Location</th><th>Qty</th><th>Tag</th></tr>";
+    for (var rowIndex=0; rowIndex < l.length; rowIndex++) {
+        var row = "<tr><td>#" + rowIndex + "</td>";
+        for(var colIndex = 0; colIndex < 4; colIndex++) {
+            var x = l[rowIndex][colIndex];
+            row += "<td>" + x + "</td>";
+        }
+        table += row + "</tr>";
+    }
+    console.log(table);
+    document.getElementById("output").innerHTML = table + "</table>"; 
+}
+

@@ -3,29 +3,22 @@
 
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
         <title>
             Inventory
         </title>
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script type="module" src="get.js"></script>
     </head>
 
-    <body>
-        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <body class="container">
 
-        <h1>IT Equipment Inventory</h1>
+        <h1 class="text-primary" style="display: inline-block;">IT Equipment Inventory</h1>
+        <button type="submit" class="btn btn-primary" style="margin-left: 15px; margin-top: 10px; display: inline-block;">Add</button>
 
-        <table>
-            <tr>
-                <th>Tag</th>
-                <th>Description</th>
-                <th>Qty</th>
-                <th>Location</th>
-                <th>ID #</th>
-            </tr>
-            <script type="module" src="get.js"></script>
-        </table>
-
-
+        <div class="card">
+            <table id="output">
+        </div>
     </body>
 
 </html>
