@@ -11,12 +11,14 @@
         <script type="module" src="get.js"></script>
     </head>
 
-    <body class="container">
+    <body class="container" style="padding-bottom: 20px;">
 
-        <h1 class="text-primary" style="display: inline-block;">IT Equipment Inventory</h1>
-        <button type="submit" class="btn btn-primary" style="margin-left: 15px; margin-top: 10px; display: inline-block;">Add</button>
-
-        <div class="card">
+        <h1 class="text-primary" style="display: inline-block; padding-right: 500px; padding-bottom: 15px;">IT Equipment Inventory</h1>
+        <form method="post" action="addRow.html" style="display: inline-block;">
+            <button class="btn btn-primary" 
+            style="margin-left: 15px; margin-top: 10px; display: inline-block;">Add</button>
+        </form>
+        <div class="card" >
             <table id="output">
         </div>
     </body>
