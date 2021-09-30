@@ -41,10 +41,8 @@ function getVals(database){
 
 getVals(database);
 
-var table = "<table> <tr><th>Tag</th><th>Description</th><th>Qty</th><th>Location</th><th>ID #</th></tr>";
-
 function setUpTable(l){
-    table = "<table> <tr><th>ID #</th><th>Description</th><th>Location</th><th>Qty</th><th>Tag</th></tr>";
+    var table = "<table> <tr><th>ID #</th><th>Description</th><th>Location</th><th>Qty</th><th>Tag</th></tr>";
     for (var rowIndex=0; rowIndex < l.length; rowIndex++) {
         var row = "<tr><td>#" + rowIndex + "</td>";
         for(var colIndex = 0; colIndex < 4; colIndex++) {
@@ -53,7 +51,6 @@ function setUpTable(l){
         }
         table += row + "</tr>";
     }
-    console.log(table);
+    //console.log(table);
     document.getElementById("output").innerHTML = table + "</table>"; 
 }
-
