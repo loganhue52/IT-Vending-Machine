@@ -5,7 +5,7 @@
 const QRCode = require('qrcode')
 
 // Creating the data
-let data = "file:///C:/Users/padawan/Documents/IT-Vending-Machine/experment/basicwebsit.html/?name='kevin'&age='17'"
+let data = "/?name=kevin&age=17"
 //let data = "fire Base website"
 
 // Converting the data into String format

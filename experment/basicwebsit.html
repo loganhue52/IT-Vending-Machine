@@ -1,10 +1,11 @@
 <body>
     <script>
         function getParams(){
-	        var idx = document.URL.indexOf('?');
+	        var website = "https://www.w3schools.com/php/func_var_empty.asp/?name=kevin&age=17";
+            var idx =website.indexOf('?');
 	        var params = new Array();
 	        if (idx != -1) {
-                var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+                var pairs = document.URL.substring(idx+1, website.length).split('&');
                 for (var i=0; i<pairs.length; i++){
                     nameVal = pairs[i].split('=');
                     params[nameVal[0]] = nameVal[1];
@@ -14,10 +15,11 @@
             return params;
         }
         params = getParams();
-        
+
         firstname = unescape(params["name"]);
         age = unescape(params["age"]);
+
         document.write("firstname = " + firstname + "<br>");
-         document.write("age = " + age + "<br>");
+        document.write("age = " + age + "<br>");
     </script>
 </body>
