@@ -21,6 +21,31 @@
         <div class="card" >
             <table id="output">
         </div>
+        <!--
+        This takes the website URL and splits the param and the rest of the URL-->
+        <script>
+        function getParams(){
+	        var website = document.URL;
+            var idx = website.indexOf('?');
+	        var params = new Array();
+	        if (idx != -1) {
+                var pairs = website.substring(idx+1, website.length).split('&');
+                for (var i=0; i<pairs.length; i++){
+                    nameVal = pairs[i].split('=');
+                    params[nameVal[0]] = nameVal[1];
+                }
+            }
+            return params;
+        }
+        params = getParams();
+
+        tag = unescape(params["tag"]);
+        descrip = unescape(params["desc"]);
+        locat = unescape(params["loc"]);
+        localStorage.setItem(tag,descrip,locat)
+        
+        </script>
+        
     </body>
 
 </html>
