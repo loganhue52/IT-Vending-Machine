@@ -5,7 +5,12 @@
 const QRCode = require('qrcode')
 
 // Creating the data
-let data = "/?name=kevin&age=17"
+
+
+let website = "https://loganhue52.github.io/IT-Vending-Machine/"
+let parameters = "?name=kevin&age=17"
+let data = website.concat(parameters)
+console.log(data)
 //let data = "fire Base website"
 
 // Converting the data into String format
