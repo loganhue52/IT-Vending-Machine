@@ -8,7 +8,7 @@ const QRCode = require('qrcode')
 
 
 let website = "https://loganhue52.github.io/IT-Vending-Machine/"
-let parameters = "?name=kevin&age=17"
+let parameters = "?tag=kevin&desc=17&loc=Classroom"
 let data = website.concat(parameters)
 console.log(data)
 //let data = "fire Base website"
