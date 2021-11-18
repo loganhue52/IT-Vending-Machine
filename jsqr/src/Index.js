@@ -7,9 +7,9 @@ const QRCode = require('qrcode')
 // Creating the data
 
 
-let website = "https://loganhue52.github.io/IT-Vending-Machine/"
-let parameters = "?tag=kevin&desc=17&loc=Classroom"
-let data = website.concat(parameters)
+let website = "https://docs.google.com/forms/d/e/1FAIpQLSfYzGHDtafCUIET58TOIOT8l7bnKdnWnDhae5rmWol6WFZAnQ/viewform?usp=pp_url&entry.1252295625=computer+networking"
+//let parameters = "?tag=kevin&desc=17&loc=Classroom"
+let data = website
 console.log(data)
 //let data = "fire Base website"
 
