@@ -1,15 +1,19 @@
 # Using QRcodes to pre-load info in a Goolge Sheet
 ---
-## Download Node JS
+## Download Node JS and JS QRcode
 
 Click this to go to the Node website --> [Node JS](https://nodejs.org/en/download/)
 
+Click the installer you need for your system
+
+![This is an image]()
+
 After thats is finished downloading open Powershell and type:
-  * npm init -y
-  * mkdir src
-  * cd src
-  * nano app.js
-  * npm install qrcode
+1. npm init -y
+2. mkdir src
+3. cd src
+4. nano app.js
+5. npm install qrcode
 ## Getting a Google Form Ready
 
 The Google Form is for when the QRCode is scaned it opens with pre-filled information in a new window
