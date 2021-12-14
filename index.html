@@ -14,13 +14,39 @@
     <body class="container" style="padding-bottom: 20px;">
 
         <h1 class="text-primary" style="display: inline-block; padding-right: 500px; padding-bottom: 15px;">IT Equipment Inventory</h1>
-        <form method="post" action="addRow.html" style="display: inline-block;">
+        <form method="post" action="Website/addRow.html" style="display: inline-block;">
             <button class="btn btn-primary" 
             style="margin-left: 15px; margin-top: 10px; display: inline-block;">Add</button>
         </form>
         <div class="card" >
             <table id="output">
         </div>
+        <!--
+        This takes the website URL and splits the param and the rest of the URL
+        <script>
+        function getParams(){
+            // https://loganhue52.github.io/IT-Vending-Machine/?tag=kevin&desc=17&loc=Classroom
+	        var website = document.URL;
+            var idx = website.indexOf('?');
+	        var params = new Array();
+	        if (idx != -1) {
+                var pairs = website.substring(idx+1, website.length).split('&');
+                for (var i=0; i<pairs.length; i++){
+                    nameVal = pairs[i].split('=');
+                    params[nameVal[0]] = nameVal[1];
+                }
+            }
+            return params;
+        }
+        params = getParams();
+
+        tag = unescape(params["tag"]);
+        descrip = unescape(params["desc"]);
+        locat = unescape(params["loc"]);
+        localStorage.setItem(tag,descrip,locat)
+        
+        </script>
+        -->
     </body>
 
 </html>
