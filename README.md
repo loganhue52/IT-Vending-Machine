@@ -39,8 +39,12 @@ Create a --> [Google Form](https://docs.google.com/forms)
 7. then click "COPY LINK" that pops up in the bottom left
 
 ![This is an image](https://github.com/loganhue52/IT-Vending-Machine/blob/d45abb1dcf312a3be5e50165e55e01c27ced12fb/Pics%20for%20readme/Screenshot%202021-11-30%20123234.png)
+# QRcode Generator In Two Language
+
+On the Python QRcode Generator it takes the data you want to use and puts it in a QRcode, then places and saves that file in the project folder, but on the JavaScript QRCode Generator it takes the data you want to use the prints the QRcode in the terminal along with the url for the QRcode.
 
 ## Python QRCode Generator
+
 
 1. Import pyqrcode
 2. From pyqrcode import QRcode
