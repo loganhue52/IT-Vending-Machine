@@ -1,7 +1,7 @@
 # Using QRcodes to pre-load info in a Google Sheet
 
 
-## Download Node JS and JS QRcode
+## Downloading Node JS and JS QRcode
 
 Click this to go to the Node website --> [Node JS](https://nodejs.org/en/download/)
 
@@ -9,10 +9,12 @@ Click the installer you need for your system
 
 ![This is an image](https://github.com/loganhue52/IT-Vending-Machine/blob/d45abb1dcf312a3be5e50165e55e01c27ced12fb/Pics%20for%20readme/Screenshot%202021-11-30%20123816.png)
 
+NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development. So in other words Nodejs helps your computer terminal run a JavaScript file.
+
 After that's is finished downloading open PowerShell and type:
 1. npm init -y
-2. mkdir src
-3. cd src
+2. mkdir "ProjectFolder"
+3. cd "ProjectFolder"
 4. nano app.js
 5. npm install qrcode
 ## Getting a Google Form Ready
