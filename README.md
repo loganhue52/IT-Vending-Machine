@@ -47,13 +47,16 @@ On the Python QRcode Generator it takes the data you want to use and puts it in 
 
 ## Python QRCode Generator
 
+Before building out the python program, ensure that the latest version of Python is installed.
+Once verified, open powershell and type "pip install pypng".
+This install the module "pypng", which allows you to create png images with python.
 
 1. Import pyqrcode
 2. From pyqrcode import QRcode
 ```py
 # Import QRCode from pyqrcode
 import pyqrcode
-#import png
+import png
 from pyqrcode import QRCode
 ```
 3. Create a string that will contain your data
