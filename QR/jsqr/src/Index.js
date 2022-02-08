@@ -5,7 +5,7 @@
 const QRCode = require('qrcode')
 
 // Creating the data
-let data = "/?name=kevin&age=17"
+let data = "https://docs.google.com/forms/d/e/1FAIpQLSfYzGHDtafCUIET58TOIOT8l7bnKdnWnDhae5rmWol6WFZAnQ/viewform?usp=pp_url&entry.2098910404=i&entry.1252295625=j&entry.1878835824=Male+to+Male&entry.1169761249=Adapters&entry.1586073499=Welding"
 //let data = "fire Base website"
 
 // Converting the data into String format
